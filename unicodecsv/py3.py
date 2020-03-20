@@ -48,7 +48,7 @@ class UnicodeReader(object):
                         for kwd_name in kwds.keys()]):
                 dialect = csv.excel
 
-        f = (bs.decode(encoding, errors=errors) for bs in f)
+        f = (bs(encoding, errors=errors) for bs in f)
         self.reader = csv.reader(f, dialect, **kwds)
 
     def __next__(self):
